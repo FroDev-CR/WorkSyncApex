@@ -140,9 +140,9 @@ st.markdown("---")
 
 # ── Extracción ────────────────────────────────────────────────────────────────
 if not storage.has_tokens():
-    st.warning(t("warning_connect_jobber_first"))
+    st.info("ℹ️ Conecta Jobber en el panel izquierdo para poder subir órdenes. La extracción y descarga CSV funcionan sin Jobber.")
 
-if st.button(t("btn_export"), type="primary", use_container_width=True, disabled=not storage.has_tokens()):
+if st.button(t("btn_export"), type="primary", use_container_width=True):
     with st.spinner(t("spinner_extracting")):
         try:
             st.info(t("info_connecting"))
