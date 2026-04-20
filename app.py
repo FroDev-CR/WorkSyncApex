@@ -28,7 +28,7 @@ def install_playwright():
 install_playwright()
 
 from i18n import t
-from config import SUPPLYPRO_USERNAME, SUPPLYPRO_PASSWORD
+from config import get_supplypro_credentials
 from scraper import ejecutar_extraccion
 from transformer import transformar_ordenes
 from jobber import storage, oauth
@@ -143,7 +143,8 @@ if st.button(t("btn_export"), type="primary", use_container_width=True, disabled
     with st.spinner(t("spinner_extracting")):
         try:
             st.info(t("info_connecting"))
-            df_raw = ejecutar_extraccion(SUPPLYPRO_USERNAME, SUPPLYPRO_PASSWORD)
+            username, password = get_supplypro_credentials()
+            df_raw = ejecutar_extraccion(username, password)
 
             st.info(t("info_processing"))
             df_final = transformar_ordenes(df_raw, "WorkSyncApex")

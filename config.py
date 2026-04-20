@@ -2,23 +2,23 @@ import os
 import streamlit as st
 
 
-def _secret(key: str, fallback_env: str) -> str:
-    """Lee de st.secrets si existe, si no del entorno."""
+def get_supplypro_credentials() -> tuple[str, str]:
+    """Devuelve (username, password) leyendo de st.secrets o variables de entorno."""
+    username = ""
+    password = ""
     try:
-        return st.secrets[key]
+        username = st.secrets["SUPPLYPRO_USERNAME"]
+        password = st.secrets["SUPPLYPRO_PASSWORD"]
     except Exception:
-        val = os.environ.get(fallback_env, "")
-        if not val:
-            raise RuntimeError(
-                f"Falta credencial '{key}'. "
-                f"Configúrala en Streamlit Cloud secrets o en la variable de entorno '{fallback_env}'."
-            )
-        return val
+        username = os.environ.get("SUPPLYPRO_USERNAME", "")
+        password = os.environ.get("SUPPLYPRO_PASSWORD", "")
 
-
-# Credenciales SupplyPro — leer de secrets/env, nunca hardcodeadas
-SUPPLYPRO_USERNAME = _secret("SUPPLYPRO_USERNAME", "SUPPLYPRO_USERNAME")
-SUPPLYPRO_PASSWORD = _secret("SUPPLYPRO_PASSWORD", "SUPPLYPRO_PASSWORD")
+    if not username or not password:
+        raise RuntimeError(
+            "Faltan credenciales de SupplyPro. "
+            "Configura SUPPLYPRO_USERNAME y SUPPLYPRO_PASSWORD en Streamlit Cloud secrets."
+        )
+    return username, password
 
 SUPPLYPRO_URL = "https://www.hyphensolutions.com/MH2Supply/Login.asp"
 
