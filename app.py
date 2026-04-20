@@ -126,8 +126,11 @@ with st.sidebar:
                 st.rerun()
     else:
         st.info(t("jobber_not_connected"))
-        auth_url, _ = oauth.build_auth_url()
-        st.link_button(t("btn_connect_jobber"), auth_url, use_container_width=True)
+        try:
+            auth_url, _ = oauth.build_auth_url()
+            st.link_button(t("btn_connect_jobber"), auth_url, use_container_width=True)
+        except Exception:
+            st.warning("⚠️ Configura JOBBER_CLIENT_ID y JOBBER_CLIENT_SECRET en Streamlit Cloud secrets.")
 
 
 # ── Contenido principal ───────────────────────────────────────────────────────
