@@ -54,7 +54,7 @@ MOBILE_CSS = """
 
 # ── Page config ───────────────────────────────────────────────────────────────
 st.set_page_config(
-    page_title="WorkSyncApex — SupplyPro",
+    page_title="WorkSync - Apex",
     page_icon="⚡",
     layout="wide",
 )

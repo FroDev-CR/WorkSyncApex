@@ -2,7 +2,7 @@ STRINGS = {
     # Page
     "page_title": "WorkSyncApex — SupplyPro",
     # Header
-    "app_title": "⚡ WorkSyncApex — SupplyPro",
+    "app_title": "⚡ WorkSync - Apex",
     "app_subtitle": "Automatic order extraction",
     # Main button
     "btn_export": "🚀 Export SupplyPro Orders",

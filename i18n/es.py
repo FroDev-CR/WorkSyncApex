@@ -2,7 +2,7 @@ STRINGS = {
     # Página
     "page_title": "WorkSyncApex — SupplyPro",
     # Encabezado
-    "app_title": "⚡ WorkSyncApex — SupplyPro",
+    "app_title": "⚡ WorkSync - Apex",
     "app_subtitle": "Extracción automática de órdenes",
     # Botón principal
     "btn_export": "🚀 Exportar órdenes de SupplyPro",
