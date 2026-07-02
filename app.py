@@ -61,7 +61,7 @@ st.set_page_config(
 st.markdown(MOBILE_CSS, unsafe_allow_html=True)
 
 # ── Session state defaults ────────────────────────────────────────────────────
-for key, default in [
+for key, default in [ "GRAHP API JOBBER" 404{Ñ[?
     ("lang",          "es"),
     ("df_result",     None),
     ("df_editor",     None),
